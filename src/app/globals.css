@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+/* 温かみのあるネイビー。OS のライト／ダークに関係なくこの配色で表示する */
+:root {
+  color-scheme: dark;
+  --background: #1f2236;
+  --foreground: #f2ece0;
+  --surface: #292d45;
+  --muted: #b8b0a3;
+  --line: #3a3f5c;
+  --track: #353a55;
+  --accent: #e8a65a;
+  --on-accent: #1f2236;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-track: var(--track);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --font-sans:
+    var(--font-noto-sans-jp), "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Tailwind v4 はボタンのカーソルを既定（矢印）にするので、指の形に戻す */
+@layer base {
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+}
