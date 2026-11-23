@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ANSWER_OPTIONS, CATEGORIES, QUESTIONS, diagnose, type Answer } from "@/lib/diagnosis";
+import { track } from "@/lib/analytics";
 import { Result } from "./Result";
 
 type Phase = "intro" | "quiz" | "result";
@@ -27,7 +28,10 @@ export function Quiz() {
         </div>
         <button
           type="button"
-          onClick={() => setPhase("quiz")}
+          onClick={() => {
+            track("quiz_start");
+            setPhase("quiz");
+          }}
           className="rounded-lg bg-accent px-6 py-4 text-base font-bold text-on-accent transition hover:opacity-90"
         >
           診断をはじめる
@@ -49,6 +53,7 @@ export function Quiz() {
     if (index < QUESTIONS.length - 1) {
       setIndex(index + 1);
     } else {
+      track("quiz_complete");
       setPhase("result");
       window.scrollTo({ top: 0 });
     }

@@ -1,6 +1,7 @@
 "use client";
 
 import { ANSWER_OPTIONS, type Answer, type DiagnosisResult } from "@/lib/diagnosis";
+import { track } from "@/lib/analytics";
 import { JOB_FIT_AGENT_URL, SITE_NAME } from "@/lib/site";
 import { levelColor, scoreColor } from "@/lib/colors";
 
@@ -16,6 +17,7 @@ export function Result({ result, onRestart }: Props) {
   const color = levelColor[level.id];
 
   const share = () => {
+    track("share_x");
     const lines = [`${SITE_NAME}の結果：${score}点（${level.label}）`];
     if (priority) {
       lines.push(`いちばん低い項目：${priority.category.label} ${priority.score}点`);
@@ -97,6 +99,7 @@ export function Result({ result, onRestart }: Props) {
           href={JOB_FIT_AGENT_URL}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => track("click_job_fit_agent")}
           className="flex flex-col gap-1 rounded-lg border border-line px-6 py-4 text-center transition hover:border-accent"
         >
           <span className="text-xs text-muted">フリーランスの方へ</span>

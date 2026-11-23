@@ -11,3 +11,10 @@ export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL
 
 /** 結果ページからの誘導先 */
 export const JOB_FIT_AGENT_URL = "https://job-fit-agent-zz6qo3c5kq-an.a.run.app";
+
+/**
+ * Google Analytics 4 の測定ID（G-XXXXXXX）。HTML に出る公開値なのでコードに置く。
+ * 開発中（npm run dev）は計測しない。
+ */
+export const GA_ID =
+  process.env.NODE_ENV === "production" ? (process.env.NEXT_PUBLIC_GA_ID ?? "G-VSDHLECSX2") : "";
