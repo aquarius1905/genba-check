@@ -99,9 +99,9 @@ export function Result({ result, onRestart }: Props) {
           rel="noopener noreferrer"
           className="rounded-lg border border-line px-6 py-4 text-center text-base transition hover:border-accent"
         >
-          次の現場を探す（job-fit-agent）
+          フリーランスの方へ：次の案件を探す（job-fit-agent）
         </a>
-        <p className="text-center text-xs text-muted">商談で使える質問リストは準備中です</p>
+        <p className="text-center text-xs text-muted">面接・商談で使える質問リストは準備中です</p>
         <button
           type="button"
           onClick={onRestart}
