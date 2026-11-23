@@ -1,5 +1,7 @@
 # 現場の健全性診断（genba-check）
 
+**🔗 今すぐ試す:** https://genba-check-283196730351.asia-northeast1.run.app/?utm_source=github （登録不要・約3分）
+
 エンジニアが、今いる開発現場の健全性を20問で自己診断するWebアプリ。
 
 - 仕様（質問・採点・結果ページ）: [docs/questions.md](docs/questions.md)
