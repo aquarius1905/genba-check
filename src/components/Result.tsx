@@ -97,9 +97,12 @@ export function Result({ result, onRestart }: Props) {
           href={JOB_FIT_AGENT_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-lg border border-line px-6 py-4 text-center text-base transition hover:border-accent"
+          className="flex flex-col gap-1 rounded-lg border border-line px-6 py-4 text-center transition hover:border-accent"
         >
-          フリーランスの方へ：次の案件を探す（job-fit-agent）
+          <span className="text-xs text-muted">フリーランスの方へ</span>
+          <span className="text-base">
+            応募したい案件が自分の経歴に合うか判定する（job-fit-agent）
+          </span>
         </a>
         <p className="text-center text-xs text-muted">面接・商談で使える質問リストは準備中です</p>
         <button
