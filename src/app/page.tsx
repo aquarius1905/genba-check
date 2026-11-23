@@ -8,8 +8,6 @@ export default function Home() {
         <p className="text-xs font-bold tracking-wider text-accent">エンジニア向け</p>
         <h1 className="text-2xl leading-snug font-bold">{SITE_NAME}</h1>
         <p className="text-sm leading-relaxed text-muted">
-          残業の空気、突然の変更、件数だけの評価、報告した人が責められる空気。
-          <br />
           今いる現場がどのくらい健全か、20問で数値化します。
         </p>
       </header>

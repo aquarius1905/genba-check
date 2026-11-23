@@ -23,11 +23,7 @@ export function Quiz() {
       <section className="flex flex-col gap-6">
         <div className="flex flex-col gap-3 text-sm leading-relaxed text-muted">
           <p>今いる現場で、起きていることを回答してください。</p>
-          <ul className="list-disc space-y-1 pl-5">
-            <li>全20問・3択（約3分）</li>
-            <li>判断ではなく「実際に起きた行動」を聞きます</li>
-            <li>企業名は聞きません。回答はブラウザの外に送信されません</li>
-          </ul>
+          <p>全20問・3択（約3分）</p>
         </div>
         <button
           type="button"

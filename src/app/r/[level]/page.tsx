@@ -38,7 +38,7 @@ export default async function SharedResult({ params }: PageProps<"/r/[level]">) 
       <div className="flex flex-col gap-3">
         <p className="text-base font-bold">あなたの現場は大丈夫ですか？</p>
         <p className="text-sm leading-relaxed text-muted">
-          残業の空気、突然の変更、件数だけの評価など、実際に起きた行動を20問で聞き、現場の健全性を数値化します。
+          今いる現場がどのくらい健全か、20問で数値化します。
         </p>
         <Link
           href="/"
