@@ -180,11 +180,15 @@ export type DiagnosisResult = {
   score: number;
   level: Level;
   categories: CategoryResult[];
-  /** 最もスコアが低いカテゴリ。80 以上なら null */
+  /** 最もスコアが低いカテゴリ。PRIORITY_THRESHOLD 以上なら null */
   priority: CategoryResult | null;
 };
 
-const percent = (got: number, max: number) => Math.round((got / max) * 100);
+/** 「優先して見る項目」を出すカテゴリスコアの基準（これ未満なら出す） */
+export const PRIORITY_THRESHOLD = 80;
+
+// 先に割ると 23/40 が 57.4999… になり四捨五入を誤るので、掛けてから割る
+const percent = (got: number, max: number) => Math.round((got * 100) / max);
 
 export function diagnose(answers: Record<number, Answer>): DiagnosisResult {
   let total = 0;
@@ -209,6 +213,6 @@ export function diagnose(answers: Record<number, Answer>): DiagnosisResult {
     score,
     level: levelOf(score),
     categories,
-    priority: worst.score < 80 ? worst : null,
+    priority: worst.score < PRIORITY_THRESHOLD ? worst : null,
   };
 }
