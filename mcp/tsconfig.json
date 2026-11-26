@@ -1,0 +1,16 @@
+{
+  // MCP サーバー専用。Next.js 本体の tsconfig とは独立させる（本体側は "mcp" を exclude）
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "types": ["node"],
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "esModuleInterop": true
+  },
+  "include": ["src", "test"]
+}
