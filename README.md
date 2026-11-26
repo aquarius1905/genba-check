@@ -36,6 +36,20 @@ MCP サーバー自体は回答を保存・外部送信しない（ファイル�
 | `get_questions` | 20問を、カテゴリ・逆転の問いかどうかと一緒に返す                                                                                     |
 | `score_answers` | 20問への回答（よくある／たまにある／ない）を受け取り、総合スコア・ラベル・カテゴリ別スコア・優先して見る項目・本人が取れる行動を返す |
 
+### よく使うコマンド（早見表）
+
+どれもリポジトリのルートで実行する。詳しくは下の各節。
+
+| やりたいこと                 | コマンド                                                                                                                    |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| 初めて使う（ビルドして登録） | `npm --prefix mcp install && npm --prefix mcp run build`<br>`claude mcp add genba-check -- node "$(pwd)/mcp/dist/index.js"` |
+| pull や編集のあとに反映する  | `npm --prefix mcp install && npm --prefix mcp run build` → Claude Code の `/mcp` で再接続                                   |
+| 登録されているか確かめる     | `claude mcp get genba-check`（Claude Code の中なら `/mcp`）                                                                 |
+| 登録を外す                   | `claude mcp remove genba-check -s local`（`--scope user` で登録した場合は `-s user`）                                       |
+| 診断する                     | Claude Code で「genba-check で今の現場を診断して」と頼む                                                                    |
+
+登録は、登録したあとに開いた Claude Code のセッションから使える。登録より前から開いていたセッションでは呼べないので、開き直す。
+
 ### ビルドと登録
 
 Node.js 20.19 以上（20 系）または 22.12 以上が必要（テストで使う Vite の要件）。
@@ -60,7 +74,7 @@ claude mcp add genba-check -- node "$(pwd)/mcp/dist/index.js"
 claude mcp add --scope user genba-check -- node "$(pwd)/mcp/dist/index.js"
 ```
 
-登録できたかは `claude mcp list`、または Claude Code 内の `/mcp` で確認できる。
+登録できたかは `claude mcp list`、または Claude Code 内の `/mcp` で確認できる。登録を外すときは `claude mcp remove genba-check -s local`（user スコープなら `-s user`）。
 
 ### 更新したとき
 
@@ -84,7 +98,7 @@ Claude が `get_questions` で20問を取得してひとつずつ聞き、回答
 総合スコア：65点（注意）
 項目別スコア：残業文化 0 / 変更管理 100 / 扱いの公正さ 100 / 時間への配慮 100 / 心理的安全性 100 / 人への関心 0
 優先して見る項目：残業文化（0点）
-本人が取れる行動：この現場では、遅くまで残ること自体が評価されやすくなっています。…
+本人が取れる行動：長く働くことが前提になっていたり、評価につながったりする場面があるようです。…
 ```
 
 回答がすでに手元にある場合は、まとめて渡すこともできる。
